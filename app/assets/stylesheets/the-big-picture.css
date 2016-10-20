@@ -1,0 +1,102 @@
+/*!
+ * Start Bootstrap - The Big Picture (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+.full {
+  background: url(http://placehold.it/1920x1080) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+	background-color: #ffffff;
+	border: 1px solid black;
+	opacity: 0.6;
+	filter: alpha(opacity=60); /* For IE8 and earlier */
+	text-align: center;
+}
+
+a {
+	font-weight: bold;
+	color: #000000;
+}
+
+.row {
+	text-align: center;
+}
+
+.col-md-6 {
+	width: 125%;
+}
+
+.event-header {
+	line-height: 50px;
+	height: 50px;
+	display: inline-block;
+	float: left;
+	font-size: 30px;
+}
+
+div#header-one {
+	text-align: center;
+	width: 25%;
+}
+
+div#header-two {
+	text-align: center;
+	width: 25%;
+	border-left: 2px dotted;
+}
+
+div#header-three {
+	text-align: center;
+	width: 15%;
+	border-left: 2px dotted;
+}
+
+div#header-four {
+	width: 16%;
+	border-left: 2px dotted;
+}
+
+.events {
+	text-align: center;
+	height: 200px;
+	display: inline-block;
+	float: left;
+}
+
+div#one {
+	width: 25%;
+	line-height: 180px;
+	font-size: 50px;
+}
+
+div#two {
+	width: 25%;
+	line-height: 180px;
+	font-size: 40px;
+	border-left: 2px dotted;
+}
+
+div#three {
+	width: 15%;
+	line-height: 180px;
+	font-size: 70px;
+	border-left: 2px dotted;
+}
+
+div#four {
+	width: 20%;
+	border-left: 2px dotted;
+}
