@@ -1,0 +1,94 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row {
+	text-align: center;
+}
+
+.col-md-6 {
+	width: 100%;
+}
+
+.event-header {
+	line-height: 50px;
+	height: 50px;
+	display: inline-block;
+	float: left;
+	font-size: 30px;
+}
+
+div#header-one {
+	width: 20%;
+}
+
+div#header-two {
+	width: 20%;
+	border-left: 2px dotted;
+}
+
+div#header-three {
+	width: 20%;
+	border-left: 2px dotted;
+}
+
+div#header-four {
+	width: 15%;
+	border-left: 2px dotted;
+}
+
+div#header-five {
+	width: 15%;
+	border-left: 2px dotted;
+}
+
+div#header-six {
+	width: 10%;
+	border-left: 2px dotted;
+}
+
+.events {
+	text-align: center;
+	height: 200px;
+	display: inline-block;
+	float: left;
+}
+
+div#one {
+	width: 20%;
+	font-size: 50px;
+}
+
+div#two {
+	width: 20%;
+	font-size: 30px;
+	border-left: 2px dotted;
+}
+
+div#three {
+	width: 20%;
+	font-size: 20px;
+	border-left: 2px dotted;
+}
+
+div#four {
+	width: 15%;
+	font-size: 70px;
+	border-left: 2px dotted;
+}
+
+div#five {
+	width: 15%;
+	font-size: 70px;
+	border-left: 2px dotted;
+}
+
+div#six {
+	width: 10%;
+	font-size: 20px;
+	border-left: 2px dotted;
+}
+
+#new-event-btn {
+	text-align: center;
+}

@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag    'events', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div id="new-event-btn">
+    <%= link_to 'New Event', new_event_path %>
+</div>
+
+<br>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="event-header" id="header-one">Name</div>
+            <div class="event-header" id="header-two">Location</div>
+            <div class="event-header" id="header-three">Description</div>
+            <div class="event-header" id="header-four"># People</div>
+            <div class="event-header" id="header-five">Lit</div>
+            <div class="event-header" id="header-six">Actions</div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+<% @events.each do |event| %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="events" id="one"><%= event.name %></div>
+                <div class="events" id="two"><%= event.location %></div>
+                <div class="events" id="three"><%= event.description %></div>
+                <div class="events" id="four">?</div>
+                <div class="events" id="five">?</div>
+                <div class="events" id="six"><%= link_to 'Show', event %><br><%= link_to 'Edit', edit_event_path(event) %><br><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+<% end %>
+
+<br>
+
+<div id="new-event-btn">
+    <%= link_to 'New Event', new_event_path %>
+</div>
