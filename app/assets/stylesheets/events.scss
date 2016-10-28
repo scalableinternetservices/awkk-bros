@@ -10,64 +10,69 @@
 	width: 100%;
 }
 
+.container {
+	border-color: #FFC459;
+	background-color: white
+}
+
 .event-header {
 	line-height: 50px;
 	height: 50px;
 	display: inline-block;
 	float: left;
-	font-size: 30px;
+	font-size: 25px;
+	font-weight: bold;
 }
 
 div#header-one {
-	width: 20%;
+	width: 25%;
+	margin-left: -5px;
 }
 
 div#header-two {
-	width: 20%;
+	width: 25%;
 	border-left: 2px dotted;
 }
 
 div#header-three {
-	width: 20%;
+	width: 18%;
 	border-left: 2px dotted;
 }
 
 div#header-four {
 	width: 15%;
 	border-left: 2px dotted;
+	border-right: 2px dotted;
 }
 
 div#header-five {
-	width: 15%;
-	border-left: 2px dotted;
-}
-
-div#header-six {
-	width: 10%;
-	border-left: 2px dotted;
+	width: 16%;
+	margin-left: 12px;
 }
 
 .events {
 	text-align: center;
-	height: 200px;
+	height: 125px;
 	display: inline-block;
 	float: left;
 }
 
 div#one {
-	width: 20%;
+	width: 25%;
+	margin-left: -5px;
 	font-size: 50px;
 }
 
 div#two {
-	width: 20%;
+	width: 25%;
 	font-size: 30px;
 	border-left: 2px dotted;
 }
 
 div#three {
-	width: 20%;
-	font-size: 20px;
+	width: 18%;
+	font-size: 50px;
+	padding-top: 20px;
 	border-left: 2px dotted;
 }
 
@@ -75,20 +80,20 @@ div#four {
 	width: 15%;
 	font-size: 70px;
 	border-left: 2px dotted;
+	border-right: 2px dotted;
 }
 
 div#five {
-	width: 15%;
-	font-size: 70px;
-	border-left: 2px dotted;
-}
-
-div#six {
-	width: 10%;
+	width: 16%;
+	margin-left: 12px;
 	font-size: 20px;
-	border-left: 2px dotted;
 }
 
 #new-event-btn {
 	text-align: center;
+}
+
+.lit {
+	height: 95px;
+	width: 100px;
 }
