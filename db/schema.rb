@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20161028013025) do
     t.text     "description", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "location"
+    t.string   "location",
+    t.string "users"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
