@@ -1,19 +1,23 @@
+<%= stylesheet_link_tag    'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+<div class="container alert alert-info" style="width: 50%; border-width: 5px;">
+<h1 class="details" style="color: #FFC000; margin-top: 50px">
+  <strong><%= @event.name %></strong>
+</h1><br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
+<h3 class="details">
   <strong>Location:</strong>
   <%= @event.location %>
-</p>
+</h3>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<h3 class="details">
+  <strong>Description:</strong>
+  <%= @event.description %>
+</h3><br><br>
+
+<h5 style="margin-bottom: 30px"><%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Return', events_path %></h5>
+
+</div>

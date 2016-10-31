@@ -16,3 +16,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "main";
+
+#litHover {
+	color: #FFC000;
+}
+
+#litHover:hover {
+	color: white;
+}
+
+#eventHover1 {
+	color: #FFC000;
+}
+
+#eventHover1:hover {
+	color: white;
+}

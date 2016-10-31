@@ -1,5 +1,13 @@
-<h1>New Event</h1>
+<%= stylesheet_link_tag    'new', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-<%= render 'form', event: @event %>
+<div class="container alert alert-info" style="width: 50%; border-width: 5px;">
+<h1 class="details" style="color: #FFC000; margin-top: 50px">
+	<strong>
+		New Event
+	</strong>
+</h1><br>
 
-<%= link_to 'Back', events_path %>
+<%= render 'form', event: @event %><br>
+
+<h5 style="color:black; margin-bottom: -10px"><%= link_to 'Back', events_path %></h5><br><br><br><br>
+</div>

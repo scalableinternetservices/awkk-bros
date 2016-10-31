@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    'form', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <%= form_for(event) do |f| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -12,21 +14,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+   <h3><%= f.label :name %></h3>
+    <h4 style="color: white"><%= f.text_field :name %></h4>
   </div>
+  <br>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <h3><%= f.label :location %></h3>
+    <h4 style="color: white"><%= f.text_field :location %></h4>
   </div>
+  <br>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+    <h3><%= f.label :description %></h3>
+    <h4 style="color: white"><%= f.text_area :description %></h4>
   </div>
+  <br><br>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+  <br>
 <% end %>

@@ -11,7 +11,7 @@
 }
 
 .container {
-	border-color: #FFC459;
+	border-color: #FFC000;
 	background-color: white
 }
 
@@ -52,27 +52,34 @@ div#header-five {
 
 .events {
 	text-align: center;
-	height: 125px;
+	height: 175px;
 	display: inline-block;
 	float: left;
+	font-weight: bold;
+	color: #FFC000;
 }
 
 div#one {
 	width: 25%;
 	margin-left: -5px;
 	font-size: 50px;
+	padding-top: 46px;
+	padding-bottom: 46px;
 }
 
 div#two {
 	width: 25%;
-	font-size: 30px;
+	font-size: 35px;
 	border-left: 2px dotted;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
 div#three {
 	width: 18%;
 	font-size: 50px;
-	padding-top: 20px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	border-left: 2px dotted;
 }
 
@@ -96,4 +103,48 @@ div#five {
 .lit {
 	height: 95px;
 	width: 100px;
+	margin-top: 38px;
+}
+
+#new-event-btn {
+	background-color: #FFC000; 
+	width: 10%;
+	border-color: lightcyan;
+	border-width: 5px;
+}
+
+#show-btn {
+	background-color: #FFC000; 
+	width: 112px;
+	height: 55px;
+	line-height: 15px;
+	font-size: 17px;
+	border-color: #31708f;
+	border-width: 5px;
+	margin-bottom: 5px;
+	color: #31708f;
+}
+
+#edit-btn {
+	background-color: #FFC000; 
+	width: 112px;
+	height: 55px;
+	line-height: 15px;
+	font-size: 17px;
+	border-color: #31708f;
+	border-width: 5px;
+	margin-bottom: 5px;
+	color: #31708f;
+}
+
+#destroy-btn {
+	background-color: #FFC000; 
+	width: 112px;
+	height: 55px;
+	line-height: 15px;
+	font-size: 17px;
+	border-color: #31708f;
+	border-width: 5px;
+	margin-bottom: 5px;
+	color: #31708f;
 }

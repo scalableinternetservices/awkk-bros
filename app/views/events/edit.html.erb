@@ -1,6 +1,14 @@
-<h1>Editing Event</h1>
+<%= stylesheet_link_tag    'edit', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<div class="container alert alert-info" style="width: 50%; border-width: 5px;">
+<h1 class="details" style="color: #FFC000; margin-top: 50px">
+  <strong>Edit Event</strong>
+</h1><br>
 <%= render 'form', event: @event %>
 
+<br><br>
+<h5 style="margin-bottom: 30px">
 <%= link_to 'Show', @event %> |
 <%= link_to 'Back', events_path %>
+</h5>
+</div>
