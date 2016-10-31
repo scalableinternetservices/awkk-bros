@@ -1,0 +1,30 @@
+br {
+	line-height: 5px;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background: #FFC000; 
+    color: black;
+    border: 2 white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+    font-weight: bold; 
+}
+
+input[type=text] {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #000033;
+}
+
+textarea {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #000033;
+}
