@@ -30,11 +30,13 @@
                 <div class="events" id="three"><%= event.description %></div>
                 <div class="events" id="four">?</div>
                 <div class="events" id="five">?</div>
-                <div class="events" id="six"><%= link_to 'Show', event %><br><%= link_to 'Edit', edit_event_path(event) %><br><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+                <div class="events" id="six"><%= link_to 'Show', event %><br><%= link_to 'Edit', edit_event_path(event) %><br><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %><br><%= link_to 'Participate', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %></div>
             </div>
         </div>
+
         <!-- /.row -->
     </div>
+
     <!-- /.container -->
 <% end %>
 
