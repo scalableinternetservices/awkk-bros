@@ -11,6 +11,7 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 10px;
     font-weight: bold; 
+    maxlength: 8;
 }
 
 input[type=text] {
