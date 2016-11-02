@@ -23,8 +23,8 @@ class EventsController < ApplicationController
   # REST API GET /events/1/comments
   # REST API GET /events/1/comments.json
   def comments
-    @event = Event.find_by_id(params[:id])
-    render json: @event.comments, status: :ok
+    @comments = Event.find_by_id(params[:id]).comments
+    render json: @comments, status: :ok
   end
 
   # GET /events/new
