@@ -19,19 +19,27 @@
   <%= @event.description %>
 </h3>
 
+<br>
+
+<h4>----------------------------------------------------------------------------------------------------</h4>
+
+<br>
+
+<h4 style="margin-bottom: 20px"><strong>Comments</strong></h4>
+
 <!-- TODO: POPULATE COMMENTS WITH USERNAMES HERE-->
 <% @event.comments.each do |comment| %>
-  <p>
+  <h5><strong>
     <%= comment.user_id %>: <%= comment.body %> (<%= comment.created_at %>)
     <!--
       comment.body - comment text
       comment.user_id - ID of User (represented as unique number), fetch user through GET request of REST API /users/:user_id, which returns JSON object that contains the variable "username"
       comment.created_at - date when comment was added to database (should be creation date)
     -->
-  </p>
+  </strong></h5>
 <% end %>
 
-<br>
+<br><br>
 
 <div class="text-center">
 <%= form_for(@comment) do |f| %>
@@ -52,13 +60,14 @@
 
   <div class="field">
     <h4><%= f.label :body, "New Comment" %></h4>
-    <p style="color: white"><%= f.text_area :body %></p>
+    <h5 style="color: white"><%= f.text_area :body, :maxlength => 91 %></h5>
   </div>
+  <br>
 
   <div class="actions">
     <%= f.submit "Post Comment" %>
   </div>
-  <br>
+  <br><br>
 <% end %>
 </div>
 
