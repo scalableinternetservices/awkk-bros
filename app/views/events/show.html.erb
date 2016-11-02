@@ -1,4 +1,6 @@
 <%= stylesheet_link_tag    'show', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'form', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 
 <!-- <p id="notice"><%= notice %></p> -->
 
@@ -17,7 +19,40 @@
   <%= @event.description %>
 </h3><br><br>
 
+<!-- <h4><%= link_to 'Comment', comments_path(comment: {event_id: @event.id, user_id: current_user.id, body: "TEST COMMENT"}), method: :post %></h4> -->
+
+<br>
+
 <h5 style="margin-bottom: 30px"><%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Return', events_path %></h5>
 
+</div>
+
+<div class="text-center">
+<%= form_for(@comment) do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :event_id, :value => @event.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="field">
+    <h3><%= f.label :body %></h3>
+    <h4 style="color: white"><%= f.text_area :body %></h4>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Post Comment" %>
+  </div>
+  <br>
+<% end %>
 </div>

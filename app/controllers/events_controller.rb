@@ -10,13 +10,21 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @comment = Comment.new
   end
 
-  # REST API GET /events/1/participants
-  # REST API GET /events/1/participants.json
-  def participants
+  # REST API GET /events/1/participants_count
+  # REST API GET /events/1/participants_count.json
+  def participants_count
     @num = Participant.where(event_id: params[:id]).count
     render json: @num, status: :ok
+  end
+
+  # REST API GET /events/1/comments
+  # REST API GET /events/1/comments.json
+  def comments
+    @event = Event.find_by_id(params[:id])
+    render json: @event.comments, status: :ok
   end
 
   # GET /events/new
@@ -66,12 +74,6 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  # POST /events/1
-  # POST /events/1.json
-  def participate
-
   end
 
   private
