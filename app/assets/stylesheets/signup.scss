@@ -1,0 +1,48 @@
+.container {
+	border-color: #FFC000;
+	background-color: white;
+}
+
+.details {
+	text-align: center;
+}
+
+br {
+	line-height: 5px;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background: #FFC000; 
+    color: black;
+    border: 2 white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+    font-weight: bold; 
+    maxlength: 8;
+}
+
+input[type=text] {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #000033;
+}
+
+input[type=email] {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #000033;
+}
+
+input[type=password] {
+	padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	background-color: #000033;
+}
