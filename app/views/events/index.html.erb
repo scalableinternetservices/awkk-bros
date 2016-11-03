@@ -12,7 +12,6 @@
         <div class="col-md-6 col-sm-12">
             <div class="event-header" id="header-one">Event</div>
             <div class="event-header" id="header-two">Location</div>
-            <!-- <div class="event-header" id="header-three">Description</div> -->
             <div class="event-header" id="header-three">People</div>
             <div class="event-header" id="header-four">Lit</div>
             <div class="event-header" id="header-five">Actions</div>
@@ -25,40 +24,33 @@
     <div class="container alert alert-info" style="border-width: 5px">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="events" id="one"><p><%= event.name %></p></div>
-                <div class="events" id="two"><%= event.location %></div>
-                <!-- <div class="events" id="three"><%= event.description %></div> -->
-                <div class="events" id="three">69</div>
-                <div class="events" id="four"><img class="lit" src="http://66.media.tumblr.com/17fd301bbd9593fd83b5e7b64e4ae297/tumblr_nq68tuRD1s1u2gapso1_1280.png"></div>
-                <div class="events" id="five">
-                    <%- if event.user.username == current_user.username %>
-                    <div class="container alert alert-warning" id="show-btn">
-                        <%= link_to 'Show', event %>
-                    </div>
+                <div class="events one"><%= event.name %></div>
+                <div class="events two"><%= event.location %></div>
+                <div class="events three" id="participate-count-<%= event.id %>">69</div>
+                <div class="events four"><%= image_tag('lit-indicator.png', :class => 'lit') %></div>
+                <div class="events five">
+                    <%- if event.user.id == current_user.id %>
+                      <div class="container alert alert-warning show-btn">
+                          <%= link_to 'Show', event %>
+                      </div>
+
+                      <div class="container alert alert-warning edit-btn">
+                          <%= link_to 'Edit', edit_event_path(event) %>
+                      </div>
+
+                      <div class="container alert alert-warning destroy-btn">
+                          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are You Sure?' } %>
+                      </div>
                     <% end -%>
 
-                    <%- if event.user.username != current_user.username %>
-                    <div class="container alert alert-warning" id="show-btn" style="margin-top: 30px">
-                        <%= link_to 'Show', event %>
-                    </div>
-                    <% end -%>
+                    <%- if event.user.id != current_user.id %>
+                      <div class="container alert alert-warning show-btn" style="margin-top: 30px">
+                          <%= link_to 'Show', event %>
+                      </div>
 
-                    <%- if event.user.username == current_user.username %>
-                    <div class="container alert alert-warning" id="edit-btn">
-                        <%= link_to 'Edit', edit_event_path(event) %>
-                    </div>
-                    <% end -%>
-
-                    <%- if event.user.username == current_user.username %>
-                    <div class="container alert alert-warning" id="destroy-btn">
-                        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are You Sure?' } %>
-                    </div>
-                    <% end -%>
-
-                    <%- if event.user.username != current_user.username %>
-                    <div class="container alert alert-warning" id="participate-btn">
-                        <%= link_to 'Attend', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %>
-                    </div>
+                      <div class="container alert alert-warning participate-btn">
+                          <%= link_to 'Attend', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %>
+                      </div>
                     <% end -%>
                 </div>
             </div>

@@ -59,7 +59,7 @@ div#header-five {
 	color: #FFC000;
 }
 
-div#one {
+div.one {
 	width: 25%;
 	margin-left: -5px;
 	font-size: 50px;
@@ -67,7 +67,7 @@ div#one {
 	padding-bottom: 48px;
 }
 
-div#two {
+div.two {
 	width: 25%;
 	font-size: 35px;
 	border-left: 2px dotted;
@@ -75,7 +75,7 @@ div#two {
 	padding-bottom: 60px;
 }
 
-div#three {
+div.three {
 	width: 18%;
 	font-size: 50px;
 	padding-top: 50px;
@@ -83,21 +83,17 @@ div#three {
 	border-left: 2px dotted;
 }
 
-div#four {
+div.four {
 	width: 15%;
 	font-size: 70px;
 	border-left: 2px dotted;
 	border-right: 2px dotted;
 }
 
-div#five {
+div.five {
 	width: 16%;
 	margin-left: 12px;
 	font-size: 20px;
-}
-
-#new-event-btn {
-	text-align: center;
 }
 
 .lit {
@@ -107,13 +103,14 @@ div#five {
 }
 
 #new-event-btn {
+	text-align: center;
 	background-color: #FFC000; 
 	width: 10%;
 	border-color: lightcyan;
 	border-width: 5px;
 }
 
-#show-btn {
+.show-btn {
 	background-color: #FFC000; 
 	width: 112px;
 	height: 55px;
@@ -125,7 +122,7 @@ div#five {
 	color: #31708f;
 }
 
-#edit-btn {
+.edit-btn {
 	background-color: #FFC000; 
 	width: 112px;
 	height: 55px;
@@ -137,7 +134,7 @@ div#five {
 	color: #31708f;
 }
 
-#destroy-btn {
+.destroy-btn {
 	background-color: #FFC000; 
 	width: 112px;
 	height: 55px;
@@ -149,7 +146,7 @@ div#five {
 	color: #31708f;
 }
 
-#participate-btn {
+.participate-btn {
 	background-color: #FFC000; 
 	width: 112px;
 	height: 55px;
