@@ -11,7 +11,7 @@
 
 <h3 class="details">
   <strong>Creator:</strong>
-  <%= @event.user_id %> (REPLACE THIS ID WITH USERNAME)
+  <%= @event.user.username %>
 </h3>
 
 <h3 class="details">
@@ -27,7 +27,7 @@
 <!-- TODO: POPULATE COMMENTS WITH USERNAMES HERE-->
 <% @event.comments.each do |comment| %>
   <p>
-    <%= comment.user_id %> (REPLACE THIS ID WITH USERNAME): <%= comment.body %> (<%= comment.created_at %>)
+    <%= comment.user.username %>: <%= comment.body %> (<%= comment.created_at %>)
     <!--
       comment.body - comment text
       comment.user_id - ID of User (represented as unique number), fetch user through GET request of REST API /users/:user_id, which returns JSON object that contains the variable "username"
