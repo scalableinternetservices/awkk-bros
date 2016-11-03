@@ -26,7 +26,7 @@
             <div class="col-md-6 col-sm-12">
                 <div class="events one"><%= event.name %></div>
                 <div class="events two"><%= event.location %></div>
-                <div class="events three" id="participate-count-<%= event.id %>">69</div>
+                <div class="events three" id="participate-count-<%= event.id %>"></div>
                 <div class="events four"><%= image_tag('lit-indicator.png', :class => 'lit') %></div>
                 <div class="events five">
                     <%- if event.user.id == current_user.id %>
@@ -63,3 +63,14 @@
 <% end %>
 
 <br>
+
+<script>
+
+$(document).ready(function () {
+  <% @events.each do |event| %>
+    $.get( "/events/<%= event.id %>/participants_count", function(data) {
+      $("#participate-count-<%= event.id %>").html(data);
+    });
+  <% end %>
+});
+</script>
