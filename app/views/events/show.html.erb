@@ -25,16 +25,22 @@
 </h3>
 
 <br>
-
 <h4>----------------------------------------------------------------------------------------------------</h4>
+<br>
 
+<h4 style="margin-bottom: 20px"><strong>Participants</strong></h4>
+
+<% @event.participants.each do |participant| %>
+  <h5><%= participant.user.username %></h5>
+<% end %>
+
+<br>
+<h4>----------------------------------------------------------------------------------------------------</h4>
 <br>
 
 <h4 style="margin-bottom: 20px"><strong>Comments</strong></h4>
 
-<!-- TODO: POPULATE COMMENTS WITH USERNAMES HERE-->
 <% @event.comments.each do |comment| %>
-
   <h5 style="margin-bottom: -7px; color: black"><strong>
     <%= comment.user.username %>:
   </strong></h5>
@@ -44,11 +50,6 @@
   <h5 style="margin-bottom: 20px; color: #FFC000"><strong>
     (<%= comment.created_at %>)
   </strong></h5>
-    <!--
-      comment.body - comment text
-      comment.user_id - ID of User (represented as unique number), fetch user through GET request of REST API /users/:user_id, which returns JSON object that contains the variable "username"
-      comment.created_at - date when comment was added to database (should be creation date)
-    -->
 <% end %>
 
 <br>

@@ -7,7 +7,7 @@
 <br>
 
 <!-- Page Content -->
-<div class="container alert alert-info" style="border-width: 5px">
+<div class="container alert" style="border-width: 5px">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="event-header" id="header-one">Event</div>
@@ -21,7 +21,7 @@
 </div>
 
 <% @events.each do |event| %>
-    <div class="container alert alert-info" style="border-width: 5px">
+    <div class="container alert" style="border-width: 5px">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="events one"><%= event.name %></div>
@@ -29,28 +29,42 @@
                 <div class="events three" id="participate-count-<%= event.id %>"></div>
                 <div class="events four"><%= image_tag('lit-indicator.png', :class => 'lit') %></div>
                 <div class="events five">
-                    <%- if event.user.id == current_user.id %>
-                      <div class="container alert alert-warning show-btn">
+                    <% if event.user.id == current_user.id %>
+                      <div class="container alert show-btn">
                           <%= link_to 'Show', event %>
                       </div>
 
-                      <div class="container alert alert-warning edit-btn">
+                      <div class="container alert edit-btn">
                           <%= link_to 'Edit', edit_event_path(event) %>
                       </div>
 
-                      <div class="container alert alert-warning destroy-btn">
+                      <div class="container alert destroy-btn">
                           <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are You Sure?' } %>
                       </div>
                     <% end -%>
 
-                    <%- if event.user.id != current_user.id %>
-                      <div class="container alert alert-warning show-btn" style="margin-top: 30px">
+                    <% if event.user.id != current_user.id %>
+                      <div class="container alert show-btn" style="margin-top: 30px">
                           <%= link_to 'Show', event %>
                       </div>
 
-                      <div class="container alert alert-warning participate-btn">
-                          <%= link_to 'Attend', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %>
-                      </div>
+                      <% event.participants.each do |participant| %>
+                          <% if participant.user.id == current_user.id %>
+                              <% @current_participant = participant %>
+                          <% end %>
+                      <% end %>
+
+                      <% if @current_participant %>
+                          <div class="container alert leave-btn">
+                              <%= link_to 'Leave', @current_participant, method: :delete %>
+                          </div>
+                      <% else %>
+                          <div class="container alert participate-btn">
+                              <%= link_to 'Attend', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %>
+                          </div>
+                      <% end %>
+
+                      
                     <% end -%>
                 </div>
             </div>
