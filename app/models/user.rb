@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :participants
   has_many :comments
+  has_many :events
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
