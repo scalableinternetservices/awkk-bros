@@ -13,6 +13,8 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="field">
    <h3><%= f.label :name %></h3>
     <h4 style="color: white"><%= f.text_field :name %></h4>
