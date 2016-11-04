@@ -2,8 +2,10 @@
 <div class="container">
 	<h1>Lit</h1>
 		<% if user_signed_in? %>
-    	<h2>Welcome <%= current_user.username %></h2>
+    		<h2>Welcome <%= current_user.username %></h2>
+    		<h4>Attend and Create <%= link_to('Lit Events', events_path) %></h4>
 		<% else %>
-			<%= link_to('Register', new_user_registration_path)  %>
+			<h2>Welcome to Lit</h2>
+			<h4>Please <%= link_to('Sign Up', new_user_registration_path) %> or <%= link_to('Login', new_user_session_path) %> to get started.</h4>
 		<% end %>
 </div>
