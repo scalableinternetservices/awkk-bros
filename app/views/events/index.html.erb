@@ -24,17 +24,48 @@
     <div class="container alert" style="border-width: 5px">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="events one"><%= event.name %></div>
-                <div class="events two"><%= event.location %></div>
-                <div class="events three" id="participate-count-<%= event.id %>"></div>
-                <div class="events four"><%= image_tag('lit-indicator.png', :class => 'lit') %></div>
-                <div class="events five">
+                <% if event.name.length <= 8 %>
+                    <div class="col-xs-6 events one"><%= event.name %></div>
+                <% end -%>
+
+                <% if event.name.length > 8 %>
+                    <div class="col-xs-6 events one" style="font-size: 35px; padding-top: 33px"><%= event.name %></div>
+                <% end -%>
+
+                <% if event.location.length <= 10 %>
+                    <div class="col-xs-6 events two"><%= event.location %></div>
+                <% end -%>
+
+                <% if event.location.length > 10 %>
+                    <div class="col-xs-6 events two" style="font-size: 30px; padding-top: 39px"><%= event.location %></div>
+                <% end -%>
+
+                <div class="col-xs-6 events three" id="participate-count-<%= event.id %>"></div>
+                
+                <% if event.participants.length < 10 %>
+                    <div class="col-xs-6 events four"><%= image_tag('lit-darkblue.png', :class => 'lit') %></div>
+                <% end -%>
+
+                <% if event.participants.length >= 10 && event.participants.length < 25 %>
+                    <div class="col-xs-6 events four"><%= image_tag('lit-lightblue.png', :class => 'lit') %></div>
+                <% end -%>
+
+                <% if event.participants.length >= 25 && event.participants.length < 50 %>
+                    <div class="col-xs-6 events four"><%= image_tag('lit-orange.png', :class => 'lit') %></div>
+                <% end -%>
+
+                <% if event.participants.length >= 50 %>
+                    <div class="col-xs-6 events four"><%= image_tag('lit-yellow.png', :class => 'lit') %></div>
+                <% end -%>
+
+               
+                <div class="col-xs-6 events five">
                     <% if event.user.id == current_user.id %>
-                      <div class="container alert show-btn">
+                      <div class="container alert show-btn" style="width: 90px; float: left;">
                           <%= link_to 'Show', event %>
                       </div>
 
-                      <div class="container alert edit-btn">
+                      <div class="container alert edit-btn"  style="width: 85px">
                           <%= link_to 'Edit', edit_event_path(event) %>
                       </div>
 
@@ -44,7 +75,7 @@
                     <% end -%>
 
                     <% if event.user.id != current_user.id %>
-                      <div class="container alert show-btn" style="margin-top: 30px">
+                     <div class="container alert show-btn" style="width: 102px; margin-left: 24px">
                           <%= link_to 'Show', event %>
                       </div>
 
