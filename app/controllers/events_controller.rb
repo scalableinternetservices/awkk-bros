@@ -4,18 +4,20 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-    if params[:search]
-      @events = Event.search(params[:search]).order("created_at DESC")
-    else
-      @events = Event.all.order('created_at DESC')
+    if stale?([Event.all])
+      if params[:search]
+        @events = Event.search(params[:search]).order("created_at DESC")
+      else
+        @events = Event.all.order('created_at DESC')
+      end
     end
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @comment = Comment.new
+    @comment = Comment.new if stale?(Comment.all)
+    fresh_when([@event, @event.comments, @event.participants])
   end
 
   # REST API GET /events/1/participants_count
@@ -27,7 +29,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new if stale?(Event.all)
   end
 
   # GET /events/1/edit
