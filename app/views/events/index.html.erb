@@ -1,5 +1,11 @@
 <%= stylesheet_link_tag    'events', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<%= form_tag(events_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
 <div class="container alert alert-warning" id="new-event-btn">
     <%= link_to 'New Event', new_event_path %>
 </div>
@@ -41,13 +47,13 @@
                       <div class="container alert destroy-btn">
                           <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are You Sure?' } %>
                       </div>
-                    <% end -%>
 
-                    <% if event.user.id != current_user.id %>
+                    <% else -%>
                       <div class="container alert show-btn" style="margin-top: 30px">
                           <%= link_to 'Show', event %>
                       </div>
 
+                      <% @current_participant = nil %>
                       <% event.participants.each do |participant| %>
                           <% if participant.user.id == current_user.id %>
                               <% @current_participant = participant %>
@@ -63,8 +69,6 @@
                               <%= link_to 'Attend', participants_path(participant: {event_id: event.id, user_id: current_user.id}), method: :post %>
                           </div>
                       <% end %>
-
-                      
                     <% end -%>
                 </div>
             </div>
