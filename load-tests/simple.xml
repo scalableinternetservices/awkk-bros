@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-35-163-253-101.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="ec2-35-160-94-206.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
   </servers>
 
 
@@ -57,8 +57,7 @@
           url='/sign_up'
           version='1.1'
           method='POST'
-          contents='user%5Bemail%5D=%%_created_user_email%%40gmail.com&amp;&user%5Busername%5D=%%_created_user_email%%&amp;
-          &user%5Bpassword%5D=%%_created_user_email%%&amp;&user%5Bpassword_confirmation%5D=%%_created_user_email%%&amp&commit=Sign+up';
+          contents='user%5Bemail%5D=%%_created_user_email%%40gmail.com&amp;user%5Busername%5D=%%_created_user_email%%&amp;user%5Bpassword%5D=%%_created_user_email%%&amp;user%5Bpassword_confirmation%5D=%%_created_user_email%%&amp;commit=Sign+up'>
       </http>
       </request>
 
