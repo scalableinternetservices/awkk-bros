@@ -57,7 +57,7 @@
           url='/sign_up'
           version='1.1'
           method='POST'
-          contents='user%5Bemail%5D=%%_created_user_email%%40gmail.com&amp;user%5Busername%5D=%%_created_user_email%%&amp;user%5Bpassword%5D=%%_created_user_email%%&amp;user%5Bpassword_confirmation%5D=%%_created_user_email%%&amp;commit=Sign+up'>
+          contents='user%5Bemail%5D=%%_random_user_name%%40gmail.com&amp;user%5Busername%5D=%%_random_user_name%%&amp;user%5Bpassword%5D=%%_random_user_name%%&amp;user%5Bpassword_confirmation%5D=%%_random_user_name%%&amp;commit=Sign+up'>
       </http>
       </request>
 
