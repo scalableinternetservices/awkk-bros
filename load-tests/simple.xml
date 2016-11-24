@@ -50,17 +50,49 @@
 
       <setdynvars sourcetype="random_number" start="100000" end="9999999">
         <var name="random_user_name" />
-      </setdynvars>
+    </setdynvars>
+
+    <!-- Have users login -->
+
+      <request>
+          <http url='/users/sign_up' version='1.1' method='GET'></http> 
+      </request>
 
       <request subst="true">
         <http
-          url='/sign_up'
+          url='/users/sign_up'
           version='1.1'
           method='POST'
           contents='user%5Bemail%5D=%%_random_user_name%%40gmail.com&amp;user%5Busername%5D=%%_random_user_name%%&amp;user%5Bpassword%5D=%%_random_user_name%%&amp;user%5Bpassword_confirmation%5D=%%_random_user_name%%&amp;commit=Sign+up'>
       </http>
       </request>
 
+      <!-- Have users create events -->
+
+      <request>
+          <http
+              url='/events'
+              version='1.1'
+              method='GET'
+          </http>
+      </request>
+
+      <request>
+          <http
+              url='/events/new'
+              version='1.1'
+              method='GET'
+          </http>
+      </request>
+
+    <request>
+        <http
+            url='/events/new'
+            version='1.1'
+            method='POST'
+            contents='event%5Buser_id%5D=1&amp;event%5Bname%5D=%%_random_user_name%%&amp;%5Blocation%5D=%%_random_user_name%%place&amp;event%5Bdescription%5D=it%27s+lit+at+%%_random_user_name&amp;commit=Create+Event'>
+        </http>
+    </request>
     </session>
   </sessions>
 </tsung>
