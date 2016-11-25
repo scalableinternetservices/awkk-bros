@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="ec2-35-160-94-206.us-west-2.compute.amazonaws.com" port="80" type="tcp"></server>
+    <server host="35.164.195.124" port="80" type="tcp"></server>
   </servers>
 
 
@@ -17,7 +17,7 @@
     <arrivalphase phase="1" duration="10" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
-
+<!--
     <arrivalphase phase="2" duration="30" unit="second">
         <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
@@ -29,6 +29,7 @@
     <arrivalphase phase="4" duration="30" unit="second">
       <users arrivalrate="8" unit="second"></users>
     </arrivalphase>
+-->
   </load>
 
   <options>
@@ -57,6 +58,8 @@
       <request>
           <http url='/users/sign_up' version='1.1' method='GET'></http> 
       </request>
+      
+      <thinktime value="2" random="true"></thinktime>
 
       <request subst="true">
         <http
@@ -67,6 +70,8 @@
       </http>
       </request>
 
+      <thinktime value="2" random="true"></thinktime>
+
       <!-- Have users create events -->
 
       <request>
@@ -76,6 +81,8 @@
               method='GET'>
           </http>
       </request>
+
+      <thinktime value="2" random="true"></thinktime>
 
       <request>
           <http
@@ -90,9 +97,10 @@
             url='/events'
             version='1.1'
             method='POST'
-            contents='event%5Buser_id%5D=1&amp;event%5Bname%5D=%%_random_user_name%%&amp;%5Blocation%5D=%%_random_user_name%%place&amp;event%5Bdescription%5D=it%27s+lit+at+%%_random_user_name&amp;commit=Create+Event'>
+            contents='event%5Buser_id%5D=1&amp;event%5Bname%5D=%%_random_user_name%%_event&amp;event%5Blocation%5D=Test+Location&amp;event%5Bdescription%5D=Description+for+test+event&amp;commit=Create+Event'>
         </http>
     </request>
+
     </session>
   </sessions>
 </tsung>
