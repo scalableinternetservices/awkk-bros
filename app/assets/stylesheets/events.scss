@@ -112,9 +112,13 @@ div.five {
 #new-event-btn {
 	text-align: center;
 	background-color: #FFC000; 
-	width: 10%;
+	width: 140px;
 	border-color: lightcyan;
-	border-width: 5px;
+	border-width: 2px;
+	height: 35px;
+	line-height: 3px;
+	font-size: 18px;
+	opacity: 1;
 }
 
 .show-btn {
@@ -181,4 +185,15 @@ div.five {
 	margin-top: 8px;
 	margin-bottom: 5px;
 	color: #31708f;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background: #FFC000; 
+    color: black;
+    border: 2 white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+    font-weight: bold; 
 }
