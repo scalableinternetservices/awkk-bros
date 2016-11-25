@@ -56,7 +56,7 @@
     <!-- Have users login -->
 
       <request>
-          <http url='/users/sign_up' version='1.1' method='GET'></http> 
+        <http url='/users/sign_up' version='1.1' method='GET'></http> 
       </request>
       
       <thinktime value="2" random="true"></thinktime>
@@ -66,8 +66,12 @@
           url='/users'
           version='1.1'
           method='POST'
-          contents='user%5Bemail%5D=%%_random_user_name%%%40gmail.com&amp;user%5Busername%5D=%%_random_user_name%%&amp;user%5Bpassword%5D=%%_random_user_name%%&amp;user%5Bpassword_confirmation%5D=%%_random_user_name%%&amp;commit=Sign+up'>
-      </http>
+          contents='user%5Bemail%5D=%%_random_user_name%%%40gmail.com
+          &amp;user%5Busername%5D=%%_random_user_name%%
+          &amp;user%5Bpassword%5D=%%_random_user_name%%
+          &amp;user%5Bpassword_confirmation%5D=%%_random_user_name%%
+          &amp;commit=Sign+up'>
+        </http>
       </request>
 
       <thinktime value="2" random="true"></thinktime>
@@ -75,31 +79,37 @@
       <!-- Have users create events -->
 
       <request>
-          <http
-              url='/events'
-              version='1.1'
-              method='GET'>
-          </http>
+        <http
+          url='/events'
+          version='1.1'
+          method='GET'>
+        </http>
       </request>
 
       <thinktime value="2" random="true"></thinktime>
 
       <request>
-          <http
-              url='/events/new'
-              version='1.1'
-              method='GET'>
-          </http>
+        <http
+          url='/events/new'
+          version='1.1'
+          method='GET'>
+        </http>
       </request>
 
-    <request>
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
         <http
-            url='/events'
-            version='1.1'
-            method='POST'
-            contents='event%5Buser_id%5D=1&amp;event%5Bname%5D=%%_random_user_name%%_event&amp;event%5Blocation%5D=Test+Location&amp;event%5Bdescription%5D=Description+for+test+event&amp;commit=Create+Event'>
+          url='/events'
+          version='1.1'
+          method='POST'
+          contents='event%5Buser_id%5D=1
+          &amp;event%5Bname%5D=%%_random_user_name%%_event
+          &amp;event%5Blocation%5D=Test+Location
+          &amp;event%5Bdescription%5D=Description+for+test+event
+          &amp;commit=Create+Event'>
         </http>
-    </request>
+      </request>
 
     </session>
   </sessions>
