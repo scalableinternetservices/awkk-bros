@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="www.google.com" port="80" type="tcp"></server>
+    <server host="35.164.195.124" port="80" type="tcp"></server>
   </servers>
 
 
@@ -17,6 +17,19 @@
     <arrivalphase phase="1" duration="10" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
+<!--
+    <arrivalphase phase="2" duration="30" unit="second">
+        <users arrivalrate="2" unit="second"></users>
+    </arrivalphase>
+
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="4" unit="second"></users>
+    </arrivalphase>
+
+    <arrivalphase phase="4" duration="30" unit="second">
+      <users arrivalrate="8" unit="second"></users>
+    </arrivalphase>
+-->
   </load>
 
   <options>
@@ -29,10 +42,65 @@
   </options>
 
   <sessions>
-    <session name="http-example" probability="100" type="ts_http">
+    <session name="landingPageHits" probability="100" type="ts_http">
       <request>
         <http url='/' version='1.1' method='GET'></http>
       </request>
+     
+      <thinktime value="2" random="true"></thinktime>
+
+      <setdynvars sourcetype="random_number" start="100000" end="9999999">
+        <var name="random_user_name" />
+    </setdynvars>
+
+    <!-- Have users login -->
+
+      <request>
+          <http url='/users/sign_up' version='1.1' method='GET'></http> 
+      </request>
+      
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http
+          url='/users'
+          version='1.1'
+          method='POST'
+          contents='user%5Bemail%5D=%%_random_user_name%%%40gmail.com&amp;user%5Busername%5D=%%_random_user_name%%&amp;user%5Bpassword%5D=%%_random_user_name%%&amp;user%5Bpassword_confirmation%5D=%%_random_user_name%%&amp;commit=Sign+up'>
+      </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users create events -->
+
+      <request>
+          <http
+              url='/events'
+              version='1.1'
+              method='GET'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request>
+          <http
+              url='/events/new'
+              version='1.1'
+              method='GET'>
+          </http>
+      </request>
+
+    <request>
+        <http
+            url='/events'
+            version='1.1'
+            method='POST'
+            contents='event%5Buser_id%5D=1&amp;event%5Bname%5D=%%_random_user_name%%_event&amp;event%5Blocation%5D=Test+Location&amp;event%5Bdescription%5D=Description+for+test+event&amp;commit=Create+Event'>
+        </http>
+    </request>
+
     </session>
   </sessions>
 </tsung>
