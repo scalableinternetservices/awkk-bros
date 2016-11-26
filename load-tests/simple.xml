@@ -83,7 +83,7 @@
           method='POST'
           contents='user%5Bemail%5D=%%_random_user_name%%%40gmail.com
           &amp;user%5Bpassword%5D=%%_random_user_name%%
-          &amp;user%remember_me%5D=0
+          &amp;user%5Bremember_me%5D=0
           &amp;commit=Log+in'>
         </http>
       </request>
