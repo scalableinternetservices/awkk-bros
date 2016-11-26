@@ -49,7 +49,7 @@
                     <% end %>
                 </ul>
                 <% if user_signed_in? %>
-                    <p class="navbar-text navbar-right">Signed in as <%= current_user.username %></p>
+                    <strong><p class="navbar-text navbar-right">Signed in as <%= current_user.username %></strong></p>
                 <% end %>
             </div>
             <!-- /.navbar-collapse -->
@@ -60,7 +60,7 @@
     <%= yield %>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <%= javascript_include_tag 'jquery', 'data-turbolinks-track': 'reload' %>
 
   </body>
 </html>

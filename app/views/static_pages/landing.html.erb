@@ -1,11 +1,23 @@
+<%= stylesheet_link_tag    'landing', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <!-- Page Content -->
-<div class="container">
-	<h1>Lit</h1>
+<div class="container alert" style="border-width: 5px">
 		<% if user_signed_in? %>
-    		<h2>Welcome <%= current_user.username %></h2>
+		<div style="font-size: 40px">Lit App</div>
+			<div style="font-weight: bold; font-size: 30px; margin-top: 15px; color: #FFC000">
+	    		Welcome, <%= current_user.username %>!
+	    		<center><div style="width: 300px; height: 300px; margin-left: -80px"><%= image_tag('fire-ice.png') %></div></center>
+    		</div>
+    		<br><br><br>
     		<h4>Attend and Create <%= link_to('Lit Events', events_path) %></h4>
 		<% else %>
-			<h2>Welcome to Lit</h2>
-			<h4>Please <%= link_to('Sign Up', new_user_registration_path) %> or <%= link_to('Login', new_user_session_path) %> to get started.</h4>
+		<div style="font-size: 40px; color: #FFC000">Lit App</div>
+			<div style="font-weight: bold; font-size: 30px; margin-top: 15px">
+	    		Welcome To The Universe Of Lit Events
+	    		<center><div style="margin-top: 35px"><%= image_tag('nebula.png') %></div></center>
+    		</div>
+    		<br><br>
+
+			<h4>Please <%= link_to('Sign Up', new_user_registration_path) %> or <%= link_to('Login', new_user_session_path) %> to get started</h4>
 		<% end %>
 </div>
