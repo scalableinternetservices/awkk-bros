@@ -9,7 +9,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="35.164.195.124" port="80" type="tcp"></server>
+    <server host="INSERT_SERVER_HOST_HERE" port="80" type="tcp"></server>
   </servers>
 
 
