@@ -2,6 +2,9 @@
 <!DOCTYPE tsung SYSTEM "/home/ec2-user/opt/tsung-1.5.0/share/tsung/tsung-1.0.dtd">
 <tsung loglevel="notice" version="1.0">
 
+    <!-- If you have made any changes to parameters in seed.rb then please fix the dyn vars in this 
+         file -->
+
   <!-- Client side setup -->
   <clients>
     <client host="localhost" use_controller_vm="true" maxusers='15000'/>
@@ -156,6 +159,22 @@
               &amp;commit=Post+Comment'>
           </http>
       </request>
+
+      <!-- Have users attend an event -->
+
+      <request subst="true">
+          <http
+              url='/participants?participant%5Bevent_id%5D=%%_random_event_id%%&participant
+              %5Buser_id%5D=1'
+              version='1.1'
+              method='POST'
+              contents=''>
+          </http>
+      </request>
+
+      <!-- Have users search the events page -->
+
+      <!-- Have users logout -->
 
     </session>
   </sessions>
