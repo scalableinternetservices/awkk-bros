@@ -123,6 +123,20 @@
         </http>
       </request>
 
+      <!-- Have users comment on events -->
+
+      <request subst="true">
+          <http
+              url='/comments'
+              version='1.1'
+              method='POST'
+              contents='comment%5Bevent_id%5D=1
+              &amp;comment%5Buser_id%5D=1
+              &amp;comment%5Bbody%5D=this+is+a+test
+              &amp;commit=Post+Comment'>
+          </http>
+      </request>
+
     </session>
   </sessions>
 </tsung>
