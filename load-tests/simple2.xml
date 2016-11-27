@@ -164,8 +164,8 @@
 
       <request subst="true">
           <http
-              url='/participants?participant%5Bevent_id%5D=%%_random_event_id%%&participant
-              %5Buser_id%5D=1'
+              url='/participants?participant%5Bevent_id%5D=
+              %%_random_event_id%%&amp;participant%5Buser_id%5D=%%_random_user_id'
               version='1.1'
               method='POST'
               contents=''>
