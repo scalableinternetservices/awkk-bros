@@ -47,7 +47,9 @@
   </options>
 
   <sessions>
-    <session name="http-example" probability="100" type="ts_http">
+      <!-- This session is targeted towards new users.  Feel free to play with the probability 
+           parameters of the sessions.  Remember that they must add up to 100 -->
+    <session name="sign-upFlow" probability="60" type="ts_http">
       <request>
         <http url='/' version='1.1' method='GET'></http>
       </request>
@@ -103,6 +105,8 @@
         </http>
       </request>
 
+      <thinktime value="2" random="true"></thinktime>
+
       <!-- Have users create events -->
 
       <request>
@@ -137,6 +141,20 @@
           &amp;commit=Create+Event'>
         </http>
       </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users search the events page -->
+
+      <request subst="true">
+          <http
+              url='/events?utf8=%E2%9C%93&amp;search=%%_random_user_id%%test&amp;commit=Search'
+              version='1.1'
+              method='GET'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
 
       <!-- Have users comment on events -->
 
@@ -178,6 +196,97 @@
 
       <thinktime value="2" random="true"></thinktime>
 
+      <!-- Have users logout -->
+
+      <request>
+          <http
+              url='/users/sign_out'
+              version='1.1'
+              method='POST'
+              contents='_method=delete'>
+          </http>
+      </request>
+    </session>
+
+
+    <!-- This session has users login instead of signing up, but they do roughly
+         the same activities -->
+
+    <session name="loginFlow" probability="40" type="ts_http">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+     
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Adjust the end number of random_user_name according to seeds.rb -->
+      <setdynvars sourcetype="random_number" start="100000" end="100099">
+        <var name="random_user_name" />
+      </setdynvars>
+
+      <!-- Refer to seeds.rb for proper end values of these two random variables -->
+      <setdynvars sourcetype="random_number" start="1" end="100">
+
+        <var name="random_user_id" />
+      </setdynvars>
+
+      <setdynvars sourcetype="random_number" start="1" end="40">
+        <var name="random_event_id" />
+      </setdynvars>
+
+      <!-- Have users login -->
+
+      <request subst="true">
+        <http
+          url='/users/sign_in'
+          version='1.1'
+          method='POST'
+          contents='user%5Bemail%5D=%%_random_user_name%%%40gmail.com
+          &amp;user%5Bpassword%5D=%%_random_user_name%%
+          &amp;user%5Bremember_me%5D=0
+          &amp;commit=Log+in'>
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users create events -->
+
+      <request>
+        <http
+          url='/events'
+          version='1.1'
+          method='GET'>
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request>
+        <http
+          url='/events/new'
+          version='1.1'
+          method='GET'>
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http
+          url='/events'
+          version='1.1'
+          method='POST'
+          contents='event%5Buser_id%5D=%%_random_user_id%%
+          &amp;event%5Bname%5D=%%_random_user_name%%_event
+          &amp;event%5Blocation%5D=Test+Location
+          &amp;event%5Bdescription%5D=Description+for+test+event
+          &amp;commit=Create+Event'>
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>      
+
       <!-- Have users search the events page -->
 
       <request subst="true">
@@ -190,16 +299,56 @@
 
       <thinktime value="2" random="true"></thinktime>
 
-      <!-- Have users logout -->
+      <!-- Have users comment on events -->
 
-      <request subst>
+      <request subst="true">
           <http
-              url='/users/sign_out'
-              version='1.1'
-              method='POST'>
+            url='/events/%%_random_event_id%%'
+            version='1.1'
+            method='GET'>
           </http>
       </request>
 
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+          <http
+              url='/comments'
+              version='1.1'
+              method='POST'
+              contents='comment%5Bevent_id%5D=%%_random_event_id%%
+              &amp;comment%5Buser_id%5D=%%_random_user_id%%
+              &amp;comment%5Bbody%5D=this+is+a+test
+              &amp;commit=Post+Comment'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users attend an event -->
+
+      <request subst="true">
+          <http
+              url='/participants?participant%5Bevent_id%5D=
+              %%_random_event_id%%&amp;participant%5Buser_id%5D=%%_random_user_id%%'
+              version='1.1'
+              method='POST'
+              contents=''>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users logout -->
+
+      <request>
+          <http
+              url='/users/sign_out'
+              version='1.1'
+              method='POST'
+              contents='_method=delete'>
+          </http>
+      </request>
     </session>
   </sessions>
 </tsung>
