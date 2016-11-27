@@ -279,7 +279,7 @@
           method='POST'
           contents='event%5Buser_id%5D=%%_random_user_id%%
           &amp;event%5Bname%5D=%%_random_user_name%%_event
-          &amp;event%5Blocation%5D=Test+Location
+          &amp;event%5Blocation%5D=Test+Location+Login
           &amp;event%5Bdescription%5D=Description+for+test+event
           &amp;commit=Create+Event'>
         </http>
