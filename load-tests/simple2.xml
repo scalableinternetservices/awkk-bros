@@ -165,7 +165,7 @@
       <request subst="true">
           <http
               url='/participants?participant%5Bevent_id%5D=
-              %%_random_event_id%%&amp;participant%5Buser_id%5D=%%_random_user_id'
+              %%_random_event_id%%&amp;participant%5Buser_id%5D=%%_random_user_id%%'
               version='1.1'
               method='POST'
               contents=''>
@@ -173,6 +173,14 @@
       </request>
 
       <!-- Have users search the events page -->
+
+      <request>
+          <http
+              url='/events?utf8=✓&amp;search=%%_random_user_id%%test&amp;commit=Search'
+              version='1.1'
+              method='GET'>
+          </http>
+      </request>
 
       <!-- Have users logout -->
 
