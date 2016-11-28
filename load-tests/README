@@ -1,0 +1,5 @@
+Modify the number of users and rate at which they come through arrival phases.
+
+The dynamic variables random_user_id and random_event_id are set to only be in the range of
+users and event id's that are initialized in seeds.rb file.  It's highly recommended that you
+adjust the values in both values in accordance with the total load of users that you test.
