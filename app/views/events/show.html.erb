@@ -30,8 +30,10 @@
 
 <h4 style="margin-bottom: 20px"><strong>Participants</strong></h4>
 
-<% @event.participants.each do |participant| %>
-  <h5><%= participant.user.username %></h5>
+<% cache(cache_key_for_event_participants(@event)) do %>
+  <% @event.participants.each do |participant| %>
+    <h5><%= participant.user.username %></h5>
+  <% end %>
 <% end %>
 
 <br>
@@ -40,16 +42,18 @@
 
 <h4 style="margin-bottom: 20px"><strong>Comments</strong></h4>
 
-<% @event.comments.each do |comment| %>
-  <h5 style="margin-bottom: -7px; color: black"><strong>
-    <%= comment.user.username %>:
-  </strong></h5>
-  <h5 style="margin-bottom: -7px"><strong>
-    <%= comment.body %> <br>
-  </strong></h5>
-  <h5 style="margin-bottom: 20px; color: #FFC000"><strong>
-    (<%= comment.created_at %>)
-  </strong></h5>
+<% cache(cache_key_for_event_comments(@event)) do %>
+  <% @event.comments.each do |comment| %>
+    <h5 style="margin-bottom: -7px; color: black"><strong>
+      <%= comment.user.username %>:
+    </strong></h5>
+    <h5 style="margin-bottom: -7px"><strong>
+      <%= comment.body %> <br>
+    </strong></h5>
+    <h5 style="margin-bottom: 20px; color: #FFC000"><strong>
+      (<%= comment.created_at %>)
+    </strong></h5>
+  <% end %>
 <% end %>
 
 <br>
