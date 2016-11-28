@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    if stale?([Event.all])
+    if stale?([Event.all, Participant.all])
       if params[:search]
         @events = Event.search(params[:search]).order("created_at DESC")
       else
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @comment = Comment.new if stale?(Comment.all)
+    @comment = Comment.new
     fresh_when([@event, @event.comments, @event.participants])
   end
 
