@@ -49,7 +49,7 @@
                     <div class="col-xs-6 events two" style="font-size: 30px; padding-top: 39px"><%= event.location %></div>
                 <% end -%>
 
-                <div class="col-xs-6 events three" id="participate-count-<%= event.id %>"><%= event.participants.length %></div>
+                <div class="col-xs-6 events three"><%= event.participants.length %></div>
                 
                 <% if event.participants.length < 1 %>
                     <div class="col-xs-6 events four"><%= image_tag('lit-darkblue.png', :class => 'lit') %></div>
