@@ -22,7 +22,7 @@
     <arrivalphase phase="1" duration="10" unit="second">
       <users arrivalrate="1" unit="second"></users>
     </arrivalphase>
-<!--
+
     <arrivalphase phase="2" duration="30" unit="second">
         <users arrivalrate="2" unit="second"></users>
     </arrivalphase>
@@ -34,7 +34,7 @@
     <arrivalphase phase="4" duration="30" unit="second">
       <users arrivalrate="8" unit="second"></users>
     </arrivalphase>
--->
+
   </load>
 
   <options>
@@ -66,7 +66,7 @@
         <var name="random_user_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_id" />
       </setdynvars>
 
@@ -238,11 +238,11 @@
         <var name="random_user_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_looker" />
       </setdynvars>
 
@@ -427,7 +427,7 @@
         <var name="random_user_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_id" />
       </setdynvars>
 
@@ -544,11 +544,11 @@
         <var name="random_user_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_id" />
       </setdynvars>
 
-      <setdynvars sourcetype="random_number" start="1" end="40">
+      <setdynvars sourcetype="random_number" start="1" end="20">
         <var name="random_event_id2" />
       </setdynvars>
 
