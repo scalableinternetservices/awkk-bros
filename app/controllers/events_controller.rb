@@ -4,11 +4,27 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    if params[:search]
-      @events = Event.search(params[:search]).order("created_at DESC")
-    else
-      @events = Event.all.order('created_at DESC')
+    @page_num = 1
+    @limit = 10
+
+    if params[:page]
+      @page_num = params[:page]
     end
+    if params[:limit]
+      @limit = params[:limit]
+    end
+
+    if params[:search]
+      temp_events = Event.search(params[:search]).order("created_at DESC")
+      @search = params[:search]
+      @utf8 = "✓"
+      @commit = "Search"
+    else
+      temp_events = Event.all.order('created_at DESC')
+    end
+
+    @events_total_length = temp_events.length
+    @events = temp_events.page(@page_num).per(@limit)
   end
 
   # GET /events/1
