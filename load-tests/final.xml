@@ -196,6 +196,18 @@
 
       <thinktime value="2" random="true"></thinktime>
 
+      <!-- Have users look at their user page -->
+
+      <request subst="true">
+          <http
+            url='/users/%%_random_user_id%%'
+            version='1.1'
+            method='GET'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
       <!-- Have users logout -->
 
       <request>
@@ -373,6 +385,18 @@
 
       <thinktime value="2" random="true"></thinktime>
 
+      <!-- Have users look at their user page -->
+
+      <request subst="true">
+          <http
+            url='/users/%%_random_user_id%%'
+            version='1.1'
+            method='GET'>
+          </http>
+      </request>
+     
+      <thinktime value="2" random="true"></thinktime>
+
       <!-- Have users logout -->
 
       <request>
@@ -451,6 +475,18 @@
               method='GET'>
           </http>
       </request>
+
+      <!-- Have users look at their user page -->
+
+      <request subst="true">
+          <http
+            url='/users/%%_random_user_id%%'
+            version='1.1'
+            method='GET'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
 
       <!-- Have users comment on events -->
 
@@ -553,6 +589,18 @@
 
       <thinktime value="2" random="true"></thinktime>
 
+      <!-- Have users look at their user page -->
+
+      <request subst="true">
+          <http
+            url='/users/%%_random_user_id%%'
+            version='1.1'
+            method='GET'>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
       <!-- Have users look at events -->
 
       <request>
@@ -650,6 +698,18 @@
               version='1.1'
               method='POST'
               contents=''>
+          </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+      <!-- Have users look at their user page -->
+
+      <request subst="true">
+          <http
+            url='/users/%%_random_user_id%%'
+            version='1.1'
+            method='GET'>
           </http>
       </request>
 
