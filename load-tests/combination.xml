@@ -14,7 +14,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="INSERT_SERVER_HOST_HERE" port="80" type="tcp"></server>
+    <server host="35.164.208.70" port="80" type="tcp"></server>
   </servers>
 
 
@@ -70,6 +70,10 @@
         <var name="random_event_id" />
       </setdynvars>
 
+      <setdynvars sourcetype="random_number" start="1" end="40">
+        <var name="random_event_id2" />
+      </setdynvars>
+
       <!-- Have users login -->
 
       <request>
@@ -119,7 +123,7 @@
 
       <thinktime value="2" random="true"></thinktime>
 
-      <!-- Have users search the events page for the own event and comment on it -->
+      <!-- Have users search the events page for their own event and comment on it -->
 
       <request subst="true">
           <http
@@ -150,7 +154,7 @@
               method='POST'
               contents='comment%5Bevent_id%5D=%%_random_event_id%%
               &amp;comment%5Buser_id%5D=%%_random_user_id%%
-              &amp;comment%5Bbody%5D=this+is+a+test
+              &amp;comment%5Bbody%5D=this+is+combination
               &amp;commit=Post+Comment'>
           </http>
       </request>
@@ -173,7 +177,7 @@
 
       <request subst="true">
           <http
-            url='/events/%%_random_event_id%%'
+            url='/events/%%_random_event_id2%%'
             version='1.1'
             method='GET'>
           </http>
@@ -186,9 +190,9 @@
               url='/comments'
               version='1.1'
               method='POST'
-              contents='comment%5Bevent_id%5D=%%_random_event_id%%
+              contents='comment%5Bevent_id%5D=%%_random_event_id2%%
               &amp;comment%5Buser_id%5D=%%_random_user_id%%
-              &amp;comment%5Bbody%5D=this+is+a+test
+              &amp;comment%5Bbody%5D=this+is+combination2
               &amp;commit=Post+Comment'>
           </http>
       </request>
@@ -200,7 +204,7 @@
       <request subst="true">
           <http
               url='/participants?participant%5Bevent_id%5D=
-              %%_random_event_id%%&amp;participant%5Buser_id%5D=%%_random_user_id%%'
+              %%_random_event_id2%%&amp;participant%5Buser_id%5D=%%_random_user_id%%'
               version='1.1'
               method='POST'
               contents=''>

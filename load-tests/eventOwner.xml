@@ -14,7 +14,7 @@
 
   <!-- Server side setup -->
   <servers>
-    <server host="INSERT_SERVER_HOST_HERE" port="80" type="tcp"></server>
+    <server host="35.164.208.70" port="80" type="tcp"></server>
   </servers>
 
 
@@ -134,7 +134,7 @@
               method='POST'
               contents='comment%5Bevent_id%5D=%%_random_event_id%%
               &amp;comment%5Buser_id%5D=%%_random_user_id%%
-              &amp;comment%5Bbody%5D=this+is+a+test
+              &amp;comment%5Bbody%5D=this+is+the+event+owner
               &amp;commit=Post+Comment'>
           </http>
       </request>
