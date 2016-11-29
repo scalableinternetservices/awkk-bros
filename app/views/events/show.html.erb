@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag    'show', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= stylesheet_link_tag    'form', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'other_links', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 
 <!-- <p id="notice"><%= notice %></p> -->
@@ -9,9 +10,9 @@
   <strong><%= @event.name %></strong>
 </h1><br>
 
-<h3 class="details">
+<h3 class="details other-links">
   <strong>Creator:</strong>
-  <%= @event.user.username %>
+  <%= link_to @event.user.username, @event.user %>
 </h3>
 
 <h3 class="details">
@@ -28,11 +29,11 @@
 <h4>----------------------------------------------------------------------------------------------------</h4>
 <br>
 
-<h4 style="margin-bottom: 20px"><strong>Participants</strong></h4>
+<h4 style="margin-bottom: 20px"><strong>Participants (<%= @event.participants.length %>)</strong></h4>
 
 <% cache(cache_key_for_event_participants(@event)) do %>
   <% @event.participants.each do |participant| %>
-    <h5><%= participant.user.username %></h5>
+    <h5 class="other-links"><%= link_to participant.user.username, participant.user %></h5>
   <% end %>
 <% end %>
 
@@ -40,12 +41,12 @@
 <h4>----------------------------------------------------------------------------------------------------</h4>
 <br>
 
-<h4 style="margin-bottom: 20px"><strong>Comments</strong></h4>
+<h4 style="margin-bottom: 20px"><strong>Comments (<%= @event.comments.length %>)</strong></h4>
 
 <% cache(cache_key_for_event_comments(@event)) do %>
   <% @event.comments.each do |comment| %>
     <h5 style="margin-bottom: -7px; color: black"><strong>
-      <%= comment.user.username %>:
+      <%= link_to comment.user.username, comment.user %>:
     </strong></h5>
     <h5 style="margin-bottom: -7px"><strong>
       <%= comment.body %> <br>

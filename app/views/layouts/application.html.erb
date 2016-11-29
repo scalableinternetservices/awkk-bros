@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'other_links', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -49,7 +50,7 @@
                     <% end %>
                 </ul>
                 <% if user_signed_in? %>
-                    <strong><p class="navbar-text navbar-right">Signed in as <%= current_user.username %></strong></p>
+                    <strong><p class="navbar-text navbar-right head-links">Signed in as <%= link_to current_user.username, current_user %></strong></p>
                 <% end %>
             </div>
             <!-- /.navbar-collapse -->
