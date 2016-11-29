@@ -3,8 +3,13 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-	@comment.save
-	redirect_to :back
+  	@comment.save
+
+    if request.env["HTTP_REFERER"].present?
+  	  redirect_to :back
+    else
+      redirect_to :root
+    end
   end
 
   private
