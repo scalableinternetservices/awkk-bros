@@ -123,3 +123,39 @@
 
     <!-- /.container -->
 <% end %>
+
+
+<% page_int = @page_num.to_i %>
+<% limit_int = @limit.to_i %>
+<% set_previous = nil %>
+<% set_next = nil %>
+
+<% if page_int > 1 %>
+  <% set_previous = true %>
+<% end %>
+<% if page_int * limit_int < @events_total_length %>
+  <% set_next = true %>
+<% end %>
+
+<% if set_next || set_previous %>
+  <div class="container alert">
+    <% if set_previous %>
+      <span style="float:left;">
+        <% if @search %>
+          <%= link_to 'Previous Page', events_path(page: (page_int - 1).to_s, limit: @limit, search: @search, utf8: @utf8, commit: @commit) %>
+        <% else %>
+          <%= link_to 'Previous Page', events_path(page: (page_int - 1).to_s, limit: @limit) %>
+        <% end %>
+      </span>
+    <% end %>
+    <% if set_next %>
+      <span style="float:right;">
+        <% if @search %>
+          <%= link_to 'Next Page', events_path(page: (page_int + 1).to_s, limit: @limit, search: @search, utf8: @utf8, commit: @commit) %>
+        <% else %>
+          <%= link_to 'Next Page', events_path(page: (page_int + 1).to_s, limit: @limit) %>
+        <% end %>
+      </span>
+    <% end %>
+  </div>
+<% end %>
