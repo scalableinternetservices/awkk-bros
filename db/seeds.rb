@@ -18,7 +18,7 @@ while user_iter < number_of_users
     user = User.new
     currUser = (user_base_number + user_iter).to_s
     user.username = currUser 
-    user.email = Random.new.rand(1.0) + "@gmail.com"
+    user.email = Random.new.rand(1.0).to_s + "@gmail.com"
     user.password = currUser
     user.password_confirmation = currUser 
     user.save!
