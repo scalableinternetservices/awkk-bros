@@ -6,14 +6,22 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     @participant.save
-    redirect_to :back
+    if request.env["HTTP_REFERER"].present?
+      redirect_to :back
+    else
+      redirect_to :root
+    end
   end
 
   # DELETE /participants/1
   # DELETE /participants/1.json
   def destroy
     @participant.destroy
-    redirect_to :back
+    if request.env["HTTP_REFERER"].present?
+      redirect_to :back
+    else
+      redirect_to :root
+    end
   end
 
   private

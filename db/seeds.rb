@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 number_of_users = 100
-number_of_events = 40
+number_of_events = 20
 user_base_number = 100000
 user_iter = 0
 event_iter = 0
