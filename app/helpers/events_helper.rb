@@ -9,10 +9,10 @@ module EventsHelper
   
 
   def cache_key_for_event_participants(event)
-    "event-#{event.id}-#{event.updated_at}-#{event.participants.length}-#{event.participants.maximum(:updated_at)}"
+    "event-participants-#{event.id}-#{event.updated_at}-#{event.participants.length}-#{event.participants.maximum(:updated_at)}"
   end
 
   def cache_key_for_event_comments(event)
-    "event-#{event.id}-#{event.updated_at}-#{event.comments.length}-#{event.comments.maximum(:updated_at)}"
+    "event-comments-#{event.id}-#{event.updated_at}-#{event.comments.length}-#{event.comments.maximum(:updated_at)}"
   end
 end
