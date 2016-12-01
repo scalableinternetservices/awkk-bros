@@ -15,12 +15,12 @@ class EventsController < ApplicationController
     end
 
     if params[:search]
-      temp_events = Event.search(params[:search]).order("created_at DESC")
+      temp_events = Event.search(params[:search]).order("created_at DESC").includes(:participants, :user)
       @search = params[:search]
       @utf8 = "✓"
       @commit = "Search"
     else
-      temp_events = Event.all.order('created_at DESC')
+      temp_events = Event.all.order('created_at DESC').includes(:participants, :user)
     end
 
     @events_total_length = temp_events.length
